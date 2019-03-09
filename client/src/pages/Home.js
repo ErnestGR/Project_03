@@ -8,8 +8,8 @@ class Home extends Component {
 
     this.state = {
       examples: [],
-      title: "",
-      description: ""
+      name: "",
+      city: ""
     };
   }
 
@@ -20,7 +20,7 @@ class Home extends Component {
   loadExamples = () => {
     API.getExamples()
       .then(res => {
-        this.setState({ examples: res.data, title: "", description: "" });
+        this.setState({ examples: res.data, name: "", city: "" });
       })
       .catch(err => {
         console.log(err);
@@ -35,14 +35,14 @@ class Home extends Component {
         <li key={element._id}>
           <Link to={`/example/${element._id}`}>
             <p>
-              {element.title}
+              {element.name}
             </p>
           </Link>
         </li>
       );
     });
 
-    if(listElements.length === 0)
+    if (listElements.length === 0)
       return <h3>No Results to Display</h3>;
 
     return <ul>{listElements}</ul>;
