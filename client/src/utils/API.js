@@ -16,5 +16,8 @@ export default {
   // Saves an example to the database
   saveExample: function(exampleData) {
     return axios.post("/api/example", exampleData);
+  },
+  getQuestions: function() {
+    return axios.get("/api/questions");
   }
 };
