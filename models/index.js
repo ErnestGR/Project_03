@@ -1,4 +1,3 @@
 module.exports = {
-  Example: require("./example"),
-  Question: require('./question')
+  Example: require("./example")
 };
