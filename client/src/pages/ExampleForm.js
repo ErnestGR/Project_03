@@ -6,8 +6,13 @@ class ExampleForm extends Component {
     super(props);
 
     this.state = {
-      title: "",
-      description: ""
+      name: "",
+      company: "",
+      city: "",
+      position: "",
+      phone: "",
+      email: "",
+      how: ""
     };
   }
 
@@ -23,27 +28,37 @@ class ExampleForm extends Component {
   submitExample = (event) => {
     event.preventDefault();
 
-    const title = this.state.title.trim();
-    const description = this.state.description.trim();
+    const name = this.state.name.trim();
+    const city = this.state.city.trim();
+    const company = this.state.company.trim();
+    const position = this.state.position.trim();
+    const phone = this.state.phone.trim();
+    const email = this.state.email.trim();
+    const how = this.state.how.trim();
 
-    if(this.areInputsValid(title, description)) {
+    if (this.areInputsValid(name, city)) {
       API.saveExample({
-        title,
-        description
+        name,
+        company,
+        city,
+        position,
+        phone,
+        email,
+        how
       }).then(() => {
         this.props.history.push('/');
       });
     }
   }
 
-  areInputsValid = (title, description) => {
-    if(!title) {
-      alert("Please fill out the title");
+  areInputsValid = (name, city) => {
+    if (!name) {
+      alert("Please fill out the name");
       return false;
     }
 
-    if(!description) {
-      alert("Please fill out the description");
+    if (!city) {
+      alert("Please fill out the city");
       return false;
     }
 
@@ -51,38 +66,113 @@ class ExampleForm extends Component {
   }
 
   render() {
-    const title = this.state.title;
-    const description = this.state.description;
-    
+    const name = this.state.name;
+    const city = this.state.city;
+    const company = this.state.company;
+    const position = this.state.position;
+    const phone = this.state.phone;
+    const email = this.state.email;
+    const how = this.state.how;
+
     return (
       <form className="container" onSubmit={this.submitExample}>
-        <h1>Create a new Example</h1>
+
+        <h1>Basic Info</h1>
+
         <div className="form-group">
           <label
-            htmlFor="title">
-            Title:
+            htmlFor="name">
+            Name:
           </label>
           <input
-            className="form-control" 
-            name="title" 
-            type="text"
-            placeholder="title"
-            onChange={this.handleInputChange} 
-            value={title} />
-        </div>
-        <div className="form-group">
-          <label 
-            htmlFor="description">
-            Description:
-          </label>
-          <textarea 
             className="form-control"
-            name="description" 
-            placeholder="description"
+            name="name"
+            type="text"
+            placeholder="name"
             onChange={this.handleInputChange}
-            value={description} />
+            value={name} />
         </div>
-        <button 
+
+        <div className="form-group">
+          <label
+            htmlFor="company">
+            Company:
+          </label>
+          <input
+            className="form-control"
+            name="company"
+            type="text"
+            placeholder="company"
+            onChange={this.handleInputChange}
+            value={company} />
+        </div>
+
+        <div className="form-group">
+          <label
+            htmlFor="city">
+            City:
+          </label>
+          <input
+            className="form-control"
+            name="city"
+            placeholder="city"
+            onChange={this.handleInputChange}
+            value={city} />
+        </div>
+
+        <div className="form-group">
+          <label
+            htmlFor="position">
+            Position:
+          </label>
+          <input
+            className="form-control"
+            name="position"
+            placeholder="position"
+            onChange={this.handleInputChange}
+            value={position} />
+        </div>
+
+        <div className="form-group">
+          <label
+            htmlFor="phone">
+            Phone:
+          </label>
+          <input
+            className="form-control"
+            name="phone"
+            placeholder="phone"
+            onChange={this.handleInputChange}
+            value={phone} />
+        </div>
+
+        <div className="form-group">
+          <label
+            htmlFor="email">
+            Email:
+          </label>
+          <input
+            className="form-control"
+            name="email"
+            placeholder="email"
+            onChange={this.handleInputChange}
+            value={email} />
+        </div>
+
+        <div className="form-group">
+          <label
+            htmlFor="how">
+            How did they hear about us:
+          </label>
+          <input
+            className="form-control"
+            name="how"
+            placeholder="Facebook, phone, email, friend"
+            onChange={this.handleInputChange}
+            value={how} />
+        </div>
+
+        <button
           className="btn btn-primary"
           type="submit">
           Submit

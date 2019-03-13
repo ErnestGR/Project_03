@@ -37,12 +37,17 @@ class Example extends Component {
       <div className="container">
         <article className="card">
           <div className="card-body">
-            <h1 className="card-title">{example.title}</h1>
-            <h3>{example.date}</h3>
+            <h1 className="card-title">{example.name}</h1>
             <section className="card-text">
-              {example.description}
+              <h6>Company: {example.company}</h6>
+              <h6>City: {example.city}</h6>
+              <h6>Position: {example.position}</h6>
+              <h6>Phone: {example.phone}</h6>
+              <h6>Email: {example.email}</h6>
+              <h6>How: {example.how}</h6>
+              <h6>{example.date}</h6>
             </section>
-            <button 
+            <button
               className="btn btn-danger"
               onClick={this.onDeleteClick}>
               Delete

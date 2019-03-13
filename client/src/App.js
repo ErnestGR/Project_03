@@ -6,7 +6,7 @@ import Example from "./pages/Example";
 import ExampleForm from "./pages/ExampleForm";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import QuestionForm  from './components/Questions/QuestionCard';
+import QuestionForm from './components/Questions/QuestionCard';
 import QuestionList from "./components/Questions/QuestionList";
 
 function App() {
@@ -15,13 +15,13 @@ function App() {
       <>
         <Nav />
         <Switch>
-          {/* <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/example/:id" component={Example} />
           <Route exact path="/newexample" component={ExampleForm} />
           <Route component={NoMatch} />
-          <Route component={QuestionForm}/> */}
-          <QuestionList />
+          <Route component={QuestionForm} />
         </Switch>
+        <QuestionList />
       </>
     </Router>
   );
