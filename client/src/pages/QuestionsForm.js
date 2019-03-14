@@ -5,7 +5,7 @@ import API from '../utils/API';
 class QuestionsForm extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
     };
   }
@@ -24,11 +24,11 @@ class QuestionsForm extends React.Component {
   }
 
   addOption = () => {
-    
+
   }
 
-  render() { 
-    const {id, question, category, options} = this.props;
+  render() {
+    const { id, question, category, options } = this.props;
 
     return (
       <form className="container" onSubmit={this.submitExample}>
@@ -64,17 +64,15 @@ class QuestionsForm extends React.Component {
         </div>
 
         <div id='optionsDiv'>
-          <h3>Please add the posible answers  </h3>
-          <button className="btn btn-success">New Option</button>
-          <div className='form-group'>
-            <label htmlFor='options'>Possible answer: </label>
-            <input
-              className='form-control'
-              name='options'
-              type='text'
-              placeholder='Possible answer'
-              value={options}/>
+          <div className='row'>
+            <div className='col-sm-11'>
+              <h5>Please add the posible answers</h5>
+            </div>
+            <div className='col-sm-1'>
+              <button className="btn btn-success">+</button>
+            </div>
           </div>
+
           <div className='form-group'>
             <label htmlFor='options'>Possible answer: </label>
             <input
@@ -82,7 +80,17 @@ class QuestionsForm extends React.Component {
               name='options'
               type='text'
               placeholder='Possible answer'
-              value={options}/>
+              value={options} />
+          </div>
+          
+          <div className='form-group'>
+            <label htmlFor='options'>Possible answer: </label>
+            <input
+              className='form-control'
+              name='options'
+              type='text'
+              placeholder='Possible answer'
+              value={options} />
           </div>
         </div>
 
@@ -95,5 +103,5 @@ class QuestionsForm extends React.Component {
     );
   }
 }
- 
+
 export default QuestionsForm;
