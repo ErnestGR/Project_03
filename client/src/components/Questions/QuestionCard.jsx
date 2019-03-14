@@ -27,6 +27,7 @@ class QuestionCard extends React.Component {
     const {id, question, category, options} = this.props;
 
     return (
+      
       <div>
         <div className="col-sm-4">
           <div className="card text-white bg-info mb-3">

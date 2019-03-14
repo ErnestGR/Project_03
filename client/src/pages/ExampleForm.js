@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import PropTypes from 'prop-types';
 
 class ExampleForm extends Component {
   constructor(props) {
