@@ -17,19 +17,6 @@ class ExampleForm extends Component {
     };
   }
 
-  static propTypes = {
-    id: PropTypes.any,
-    question: PropTypes.string,
-    category: PropTypes.string,
-    options: PropTypes.array
-  }
-  static defaultProps = {
-    id: '',
-    question: 'No question defined',
-    category: 'No category defined',
-    options: []
-  }
-
   handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
