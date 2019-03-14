@@ -18,8 +18,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/example/:id" component={Example} />
           <Route exact path="/newexample" component={ExampleForm} />
-          <Route component={NoMatch} />
-          <Route component={QuestionForm} />
+          <Route component={NoMatch}/>
+          <Route component={QuestionForm}/>
         </Switch>
         <QuestionList />
       </>

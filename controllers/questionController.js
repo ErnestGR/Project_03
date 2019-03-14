@@ -16,4 +16,4 @@ module.exports = {
   },
   update: function (req, res) {res.send(200)},
   remove: function(req, res) {res.send(200)}
-} 
+}

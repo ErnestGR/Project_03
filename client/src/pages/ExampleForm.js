@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
+import PropTypes from 'prop-types';
 
 class ExampleForm extends Component {
   constructor(props) {
@@ -14,6 +15,19 @@ class ExampleForm extends Component {
       email: "",
       how: ""
     };
+  }
+
+  static propTypes = {
+    id: PropTypes.any,
+    question: PropTypes.string,
+    category: PropTypes.string,
+    options: PropTypes.array
+  }
+  static defaultProps = {
+    id: '',
+    question: 'No question defined',
+    category: 'No category defined',
+    options: []
   }
 
   handleInputChange = (event) => {
@@ -178,8 +192,9 @@ class ExampleForm extends Component {
           Submit
         </button>
       </form>
-    );
-  }
-}
-
-export default ExampleForm;
+      <form className="container" onSubmit={this.submitExample}>
+        );
+      }
+    }
+    
+    export default ExampleForm;
