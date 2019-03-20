@@ -20,8 +20,14 @@ exampleSchema.post("save", function(lead, next) {
   const totalScore = lead.answers.reduce((score, answer) => {
     return score + answer;
   }, 0);
+
   const type = ScoreManager.GetTypeByScore(totalScore);
-  SlackManager.sendToSlack({ ...lead._doc, type: type });
+
+  if (type === "sql" || type === "vip") {
+    SlackManager.sendToSlack({ ...lead._doc, type: type });
+  }
+  console.log("Lead fue NAC o MQL");
+
   next();
 });
 
