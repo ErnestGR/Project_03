@@ -13,7 +13,7 @@ const exampleSchema = new Schema({
   phone: { type: String },
   email: { type: String },
   how: { type: String },
-  answers: { type: Array, default: [10, 10, 10, 10, 10, 10, 10, 9] }
+  answers: { type: Array, default: [] }
 });
 
 exampleSchema.post("save", function(lead, next) {
