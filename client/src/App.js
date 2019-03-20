@@ -7,7 +7,7 @@ import ExampleForm from "./pages/ExampleForm";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import QuestionForm from './components/Questions/QuestionCard';
-import QuestionList from "./components/Questions/QuestionList";
+
 
 function App() {
   return (
@@ -21,7 +21,6 @@ function App() {
           <Route component={NoMatch} />
           <Route component={QuestionForm} />
         </Switch>
-        <QuestionList />
       </>
     </Router>
   );

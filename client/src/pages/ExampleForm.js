@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
+import QuestionList from "../components/Questions/QuestionList";
 
 class ExampleForm extends Component {
   constructor(props) {
@@ -75,111 +76,140 @@ class ExampleForm extends Component {
     const how = this.state.how;
 
     return (
-      <form className="container" onSubmit={this.submitExample}>
 
-        <h1>Basic Info</h1>
+      <div class="container-fluid">
+        <div className="row">
+          <div className="col-sm-12">
+            <div className="card text-white bg-secondary mb-3">
+              <div className="card-header">Basic Info</div>
+              <div className="card-body">
+                <form className="" onSubmit={this.submitExample}>
 
-        <div className="form-group">
-          <label
-            htmlFor="name">
-            Name:
+                  <div className="form-group row">
+                    <label
+                      htmlFor="name"
+                      class="col-sm-2 col-form-label">
+                      Name:
           </label>
-          <input
-            className="form-control"
-            name="name"
-            type="text"
-            placeholder="name"
-            onChange={this.handleInputChange}
-            value={name} />
-        </div>
+                    <div class="col-sm-10">
+                      <input
+                        className="form-control"
+                        name="name"
+                        type="text"
+                        placeholder="name"
+                        onChange={this.handleInputChange}
+                        value={name} />
+                    </div>
+                  </div>
 
-        <div className="form-group">
-          <label
-            htmlFor="company">
-            Company:
+                  <div className="form-group row">
+                    <label
+                      htmlFor="company"
+                      class="col-sm-2 col-form-label">
+                      Company:
           </label>
-          <input
-            className="form-control"
-            name="company"
-            type="text"
-            placeholder="company"
-            onChange={this.handleInputChange}
-            value={company} />
-        </div>
-
-        <div className="form-group">
-          <label
-            htmlFor="city">
-            City:
+                    <div class="col-sm-10">
+                      <input
+                        className="form-control"
+                        name="company"
+                        type="text"
+                        placeholder="company"
+                        onChange={this.handleInputChange}
+                        value={company} />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label
+                      htmlFor="city"
+                      class="col-sm-2 col-form-label">
+                      City:
           </label>
-          <input
-            className="form-control"
-            name="city"
-            placeholder="city"
-            onChange={this.handleInputChange}
-            value={city} />
-        </div>
-
-        <div className="form-group">
-          <label
-            htmlFor="position">
-            Position:
+                    <div class="col-sm-10">
+                      <input
+                        className="form-control"
+                        name="city"
+                        placeholder="city"
+                        onChange={this.handleInputChange}
+                        value={city} />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label
+                      htmlFor="position"
+                      class="col-sm-2 col-form-label">
+                      Position:
           </label>
-          <input
-            className="form-control"
-            name="position"
-            placeholder="position"
-            onChange={this.handleInputChange}
-            value={position} />
-        </div>
-
-        <div className="form-group">
-          <label
-            htmlFor="phone">
-            Phone:
+                    <div class="col-sm-10">
+                      <input
+                        className="form-control"
+                        name="position"
+                        placeholder="position"
+                        onChange={this.handleInputChange}
+                        value={position} />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label
+                      htmlFor="phone"
+                      class="col-sm-2 col-form-label">
+                      Phone:
           </label>
-          <input
-            className="form-control"
-            name="phone"
-            placeholder="phone"
-            onChange={this.handleInputChange}
-            value={phone} />
-        </div>
-
-        <div className="form-group">
-          <label
-            htmlFor="email">
-            Email:
+                    <div class="col-sm-10">
+                      <input
+                        className="form-control"
+                        name="phone"
+                        placeholder="phone"
+                        onChange={this.handleInputChange}
+                        value={phone} />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label
+                      htmlFor="email"
+                      class="col-sm-2 col-form-label">
+                      Email:
           </label>
-          <input
-            className="form-control"
-            name="email"
-            placeholder="email"
-            onChange={this.handleInputChange}
-            value={email} />
-        </div>
-
-        <div className="form-group">
-          <label
-            htmlFor="how">
-            How did they hear about us:
+                    <div class="col-sm-10">
+                      <input
+                        className="form-control"
+                        name="email"
+                        placeholder="email"
+                        onChange={this.handleInputChange}
+                        value={email} />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label
+                      htmlFor="how"
+                      class="col-sm-2 col-form-label">
+                      How did they hear about us:
           </label>
-          <input
-            className="form-control"
-            name="how"
-            placeholder="Facebook, phone, email, friend"
-            onChange={this.handleInputChange}
-            value={how} />
-        </div>
+                    <div class="col-sm-10">
+                      <input
+                        className="form-control"
+                        name="how"
+                        placeholder="Facebook, phone, email, friend"
+                        onChange={this.handleInputChange}
+                        value={how} />
+                    </div>
+                  </div>
 
-        <button
-          className="btn btn-primary"
-          type="submit">
-          Submit
+                  <button
+                    className="btn btn-primary"
+                    type="submit">
+                    Submit
         </button>
-      </form>
+
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     );
   }
 }
+
 
 export default ExampleForm;

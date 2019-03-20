@@ -14,11 +14,11 @@ class QuestionList extends React.Component {
 
   componentDidMount() {
     API.getQuestions()
-    .then((response) => {
-      this.setState({
-        questions: response.data
+      .then((response) => {
+        this.setState({
+          questions: response.data
+        });
       });
-    });
   }
 
   getQuestionsAsCards = () => {
@@ -26,13 +26,13 @@ class QuestionList extends React.Component {
 
     const questionCards = questions.map((question, index) => {
       return (
-        <QuestionCard 
+        <QuestionCard
           id={question._id}
           category={question.category}
           question={question.question}
           options={question.options}
           key={index}
-          />
+        />
       );
     });
 
@@ -44,9 +44,13 @@ class QuestionList extends React.Component {
     return (
       <div>
         {questionCards}
+        {questionCards}
+        {questionCards}
+        {questionCards}
+        {questionCards}
       </div>
     );
   }
-} 
+}
 
 export default QuestionList;
