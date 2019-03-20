@@ -7,7 +7,7 @@ module.exports = {
     } else if (score >= 57 && score <= 78) {
       return "sql";
     } else if (score >= 79) {
-      return "mvp";
+      return "vip";
     }
 
     return "error";
