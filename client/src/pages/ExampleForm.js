@@ -179,7 +179,6 @@ class ExampleForm extends Component {
           Submit
         </button>
       </form>
-      <form className="container" onSubmit={this.submitExample}>
         );
       }
     }

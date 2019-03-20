@@ -7,6 +7,11 @@ class QuestionsForm extends React.Component {
     super(props);
 
     this.state = {
+      question: '',
+      category: '',
+      options: [
+        { opTxt: '', opVal: null }
+      ]
     };
   }
 
@@ -18,17 +23,67 @@ class QuestionsForm extends React.Component {
   }
   static defaultProps = {
     id: '',
-    question: 'No question defined',
-    category: 'No category defined',
+    question: '',
+    category: '',
     options: []
   }
 
-  addOption = () => {
+  addOption = (event) => {
+    event.preventDefault();
+    let newOpt = this.state.options.length += 1;
+    this.setState(prevState => ({
+      options: prevState.options.concat([newOpt])
+    }));
+  }
 
+  handleInputChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleOptionSelect = (event) => {
+    const index = event.target.dataset.index;
+
+    this.setState({
+      
+    });
+  }
+
+  submitQuestion = (event) => {
+    event.preventDefault();
+
+    const question = this.state.question.trim();
+    const category = this.state.category.trim();
+    const options = this.state.options;
+
+    if (this.areInputsValid(question, category)) {
+      API.saveExample({
+        question, category, options
+      }).then(() => {
+        this.props.history.push('/');
+      });
+    }
+  }
+
+  areInputsValid = (question, category) => {
+    if (!question) {
+      alert("Please fill out the question");
+      return false;
+    }
+    if (!category) {
+      alert("Please fill out the category");
+      return false;
+    }
+
+    return true;
   }
 
   render() {
-    const { id, question, category, options } = this.props;
+    const { id, question, category, options } = this.state;
 
     return (
       <form className="container" onSubmit={this.submitExample}>
@@ -58,40 +113,44 @@ class QuestionsForm extends React.Component {
             className="form-control"
             name="category"
             type="text"
-            placeholder="category"
+            placeholder="Category"
             onChange={this.handleInputChange}
             value={category} />
         </div>
 
-        <div id='optionsDiv'>
-          <div className='row'>
-            <div className='col-sm-11'>
-              <h5>Please add the posible answers</h5>
-            </div>
-            <div className='col-sm-1'>
-              <button className="btn btn-success">+</button>
-            </div>
-          </div>
+        <br />
 
-          <div className='form-group'>
-            <label htmlFor='options'>Possible answer: </label>
-            <input
-              className='form-control'
-              name='options'
-              type='text'
-              placeholder='Possible answer'
-              value={options} />
+        <div className='row'>
+          <div className='col-sm-11'>
+            <h5>Please add the posible answers</h5>
           </div>
-          
-          <div className='form-group'>
-            <label htmlFor='options'>Possible answer: </label>
-            <input
-              className='form-control'
-              name='options'
-              type='text'
-              placeholder='Possible answer'
-              value={options} />
+          <div className='col-sm-1'>
+            <button className="btn btn-primary" onClick={this.addOption}>+</button>
           </div>
+        </div>
+        <div id='dynamicOptions'>
+          {
+            options.map((opt, i) => {
+              return (
+                <div className='form-group' key={i}>
+                  <label htmlFor={opt.opTxt}>Possible answer:</label>
+                  <input
+                    className='form-control'
+                    name={opt.opTxt}
+                    type='text'
+                    placeholder='Possible answer'
+                    value={opt.opTxt}
+                    onChange={this.handleInputChange} />
+                  <select className="form-control form-control-sm">
+                    <option value={8} data-index="8" onChange={this.handleInputChange}>8</option>
+                    <option value={6} data-index="6" onChange={this.handleInputChange}>6</option>
+                    <option value={4} data-index="4" onChange={this.handleInputChange}>4</option>
+                    <option value={2} data-index="2" onChange={this.handleInputChange}>2</option>
+                  </select>
+                </div>
+              )
+            })
+          }
         </div>
 
         <button
