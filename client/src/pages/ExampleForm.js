@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import API from "../utils/API";
 
 class ExampleForm extends Component {
@@ -16,16 +16,16 @@ class ExampleForm extends Component {
     };
   }
 
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;
 
     this.setState({
       [name]: value
     });
-  }
+  };
 
-  submitExample = (event) => {
+  submitExample = event => {
     event.preventDefault();
 
     const name = this.state.name.trim();
@@ -45,11 +45,15 @@ class ExampleForm extends Component {
         phone,
         email,
         how
-      }).then(() => {
-        this.props.history.push('/');
-      });
+      })
+        .then(() => {
+          this.props.history.push("/");
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
-  }
+  };
 
   areInputsValid = (name, city) => {
     if (!name) {
@@ -63,7 +67,7 @@ class ExampleForm extends Component {
     }
 
     return true;
-  }
+  };
 
   render() {
     const name = this.state.name;
@@ -76,105 +80,88 @@ class ExampleForm extends Component {
 
     return (
       <form className="container" onSubmit={this.submitExample}>
-
         <h1>Basic Info</h1>
 
         <div className="form-group">
-          <label
-            htmlFor="name">
-            Name:
-          </label>
+          <label htmlFor="name">Name:</label>
           <input
             className="form-control"
             name="name"
             type="text"
             placeholder="name"
             onChange={this.handleInputChange}
-            value={name} />
+            value={name}
+          />
         </div>
 
         <div className="form-group">
-          <label
-            htmlFor="company">
-            Company:
-          </label>
+          <label htmlFor="company">Company:</label>
           <input
             className="form-control"
             name="company"
             type="text"
             placeholder="company"
             onChange={this.handleInputChange}
-            value={company} />
+            value={company}
+          />
         </div>
 
         <div className="form-group">
-          <label
-            htmlFor="city">
-            City:
-          </label>
+          <label htmlFor="city">City:</label>
           <input
             className="form-control"
             name="city"
             placeholder="city"
             onChange={this.handleInputChange}
-            value={city} />
+            value={city}
+          />
         </div>
 
         <div className="form-group">
-          <label
-            htmlFor="position">
-            Position:
-          </label>
+          <label htmlFor="position">Position:</label>
           <input
             className="form-control"
             name="position"
             placeholder="position"
             onChange={this.handleInputChange}
-            value={position} />
+            value={position}
+          />
         </div>
 
         <div className="form-group">
-          <label
-            htmlFor="phone">
-            Phone:
-          </label>
+          <label htmlFor="phone">Phone:</label>
           <input
             className="form-control"
             name="phone"
             placeholder="phone"
             onChange={this.handleInputChange}
-            value={phone} />
+            value={phone}
+          />
         </div>
 
         <div className="form-group">
-          <label
-            htmlFor="email">
-            Email:
-          </label>
+          <label htmlFor="email">Email:</label>
           <input
             className="form-control"
             name="email"
             placeholder="email"
             onChange={this.handleInputChange}
-            value={email} />
+            value={email}
+          />
         </div>
 
         <div className="form-group">
-          <label
-            htmlFor="how">
-            How did they hear about us:
-          </label>
+          <label htmlFor="how">How did they hear about us:</label>
           <input
             className="form-control"
             name="how"
             placeholder="Facebook, phone, email, friend"
             onChange={this.handleInputChange}
-            value={how} />
+            value={how}
+          />
         </div>
 
-        <button
-          className="btn btn-primary"
-          type="submit">
+        <button className="btn btn-primary" type="submit">
           Submit
         </button>
       </form>
