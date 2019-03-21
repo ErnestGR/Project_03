@@ -47,10 +47,43 @@ class QuestionsForm extends React.Component {
 
   handleOptionSelect = (event) => {
     const index = event.target.dataset.index;
+    const value = event.target.value;
 
-    this.setState({
-      
-    });
+    /* this.setState(
+      {
+        options: options.map((opt, i) => {
+          if(index === i) {
+            return {...opt, opVal: value};
+          }
+          return opt;
+        })
+      }
+    ) */
+
+    this.setState(state => ({
+      options: state.options.map((opt, i) => {
+        if (index === i) {
+          return { ...opt, opVal: value };
+        }
+        return opt;
+      })
+    })
+    );
+  }
+
+  handleOptionInput = (event) => {
+    const index = event.target.dataset.index;
+    const value = event.target.value;
+
+    this.setState(state => ({
+      options: state.options.map((opt, i) => {
+        if (index === i) {
+          return {...opt, opVal: value};
+        }
+        return opt;
+      })
+    })
+    );
   }
 
   submitQuestion = (event) => {
@@ -86,7 +119,7 @@ class QuestionsForm extends React.Component {
     const { id, question, category, options } = this.state;
 
     return (
-      <form className="container" onSubmit={this.submitExample}>
+      <form className="container" onSubmit={this.submitQuestion}>
 
         <h1>Create new question</h1>
 
@@ -140,12 +173,12 @@ class QuestionsForm extends React.Component {
                     type='text'
                     placeholder='Possible answer'
                     value={opt.opTxt}
-                    onChange={this.handleInputChange} />
+                    onChange={this.handleOptionInput} />
                   <select className="form-control form-control-sm">
-                    <option value={8} data-index="8" onChange={this.handleInputChange}>8</option>
-                    <option value={6} data-index="6" onChange={this.handleInputChange}>6</option>
-                    <option value={4} data-index="4" onChange={this.handleInputChange}>4</option>
-                    <option value={2} data-index="2" onChange={this.handleInputChange}>2</option>
+                    <option value={8} data-index="8" onChange={this.handleOptionSelect}>8</option>
+                    <option value={6} data-index="6" onChange={this.handleOptionSelect}>6</option>
+                    <option value={4} data-index="4" onChange={this.handleOptionSelect}>4</option>
+                    <option value={2} data-index="2" onChange={this.handleOptionSelect}>2</option>
                   </select>
                 </div>
               )
