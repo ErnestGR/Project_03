@@ -2,13 +2,13 @@ const router = require('express').Router();
 const questionController = require("../../controllers/questionController");
 
 router.route("/")
-  .get(exampleController.findAll)
-  .post(exampleController.create);
+  .get(questionController.findAll)
+  .post(questionController.create);
 
 router
   .route("/:id")
-  .get(exampleController.findById)
-  .put(exampleController.update)
-  .delete(exampleController.remove);
+  .get(questionController.findById)
+  .put(questionController.update)
+  .delete(questionController.remove);
 
 module.exports = router;
