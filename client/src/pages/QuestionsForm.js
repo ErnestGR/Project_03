@@ -10,7 +10,7 @@ class QuestionsForm extends React.Component {
       question: '',
       category: '',
       options: [
-        { opTxt: '', opVal: null }
+        { text: '', value: 8 }
       ]
     };
   }
@@ -30,10 +30,12 @@ class QuestionsForm extends React.Component {
 
   addOption = (event) => {
     event.preventDefault();
-    let newOpt = this.state.options.length += 1;
-    this.setState(prevState => ({
-      options: prevState.options.concat([newOpt])
-    }));
+    this.setState({
+      options: [
+        ...this.state.options,
+        { text: "", value: 8 }
+      ]
+    });
   }
 
   handleInputChange = (event) => {
@@ -45,44 +47,31 @@ class QuestionsForm extends React.Component {
     });
   }
 
-  handleOptionSelect = (event) => {
-    const index = event.target.dataset.index;
+  handleOptionSelect = (event, index) => {
     const value = event.target.value;
 
-    /* this.setState(
-      {
-        options: options.map((opt, i) => {
-          if(index === i) {
-            return {...opt, opVal: value};
-          }
-          return opt;
-        })
-      }
-    ) */
-
-    this.setState(state => ({
-      options: state.options.map((opt, i) => {
+    this.setState({
+      options: this.state.options.map((opt, i) => {
         if (index === i) {
-          return { ...opt, opVal: value };
+          return { ...opt, value: value };
         }
         return opt;
       })
-    })
+    }
     );
   }
 
-  handleOptionInput = (event) => {
-    const index = event.target.dataset.index;
+  handleOptionInput = (event, index) => {
     const value = event.target.value;
 
-    this.setState(state => ({
-      options: state.options.map((opt, i) => {
+    this.setState({
+      options: this.state.options.map((opt, i) => {
         if (index === i) {
-          return {...opt, opVal: value};
+          return { ...opt, text: value };
         }
         return opt;
       })
-    })
+    }
     );
   }
 
@@ -94,7 +83,7 @@ class QuestionsForm extends React.Component {
     const options = this.state.options;
 
     if (this.areInputsValid(question, category)) {
-      API.saveExample({
+      API.createQuestion({
         question, category, options
       }).then(() => {
         this.props.history.push('/');
@@ -166,19 +155,19 @@ class QuestionsForm extends React.Component {
             options.map((opt, i) => {
               return (
                 <div className='form-group' key={i}>
-                  <label htmlFor={opt.opTxt}>Possible answer:</label>
+                  <label htmlFor={opt.text}>Possible answer:</label>
                   <input
                     className='form-control'
-                    name={opt.opTxt}
+                    name={opt.text}
                     type='text'
                     placeholder='Possible answer'
-                    value={opt.opTxt}
-                    onChange={this.handleOptionInput} />
-                  <select className="form-control form-control-sm">
-                    <option value={8} data-index="8" onChange={this.handleOptionSelect}>8</option>
-                    <option value={6} data-index="6" onChange={this.handleOptionSelect}>6</option>
-                    <option value={4} data-index="4" onChange={this.handleOptionSelect}>4</option>
-                    <option value={2} data-index="2" onChange={this.handleOptionSelect}>2</option>
+                    value={opt.text}
+                    onChange={(event) => { this.handleOptionInput(event, i); }} />
+                  <select className="form-control form-control-sm" onChange={(event) => { this.handleOptionSelect(event, i); }} value={opt.value}>
+                    <option value={8} data-index="8">8</option>
+                    <option value={6} data-index="6">6</option>
+                    <option value={4} data-index="4">4</option>
+                    <option value={2} data-index="2">2</option>
                   </select>
                 </div>
               )

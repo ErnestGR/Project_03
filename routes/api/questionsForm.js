@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const questionController = require("../../controllers/questionController");
+const questionFormController = require("../../controllers/questionFormController");
 
 router.route("/")
-  .get(questionController.findAll)
-  .post(questionController.create);
+  .get(questionFormController.findAll)
+  .post(questionFormController.create);
 
 router
   .route("/:id")
-  .get(questionController.findById)
-  .put(questionController.update)
-  .delete(questionController.remove);
+  .get(questionFormController.findById)
+  .put(questionFormController.update)
+  .delete(questionFormController.remove);
 
 module.exports = router;
