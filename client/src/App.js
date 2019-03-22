@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Example from "./pages/Example";
-import ExampleForm from "./pages/ExampleForm";
+import ExampleForm from "./pages/basicInfo";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import QuestionForm from './components/Questions/QuestionCard';
