@@ -13,7 +13,8 @@ class ExampleForm extends Component {
       position: "",
       phone: "",
       email: "",
-      how: ""
+      how: "",
+      answers: []
     };
   }
 
@@ -36,6 +37,7 @@ class ExampleForm extends Component {
     const phone = this.state.phone.trim();
     const email = this.state.email.trim();
     const how = this.state.how.trim();
+    const answers = this.state.answers;
 
     if (this.areInputsValid(name, city)) {
       API.saveExample({
@@ -45,14 +47,11 @@ class ExampleForm extends Component {
         position,
         phone,
         email,
-        how
-      })
-        .then(() => {
-          this.props.history.push("/");
-        })
-        .catch(err => {
-          console.log(err);
-        });
+        how,
+        answers
+      }).then(() => {
+        this.props.history.push('/');
+      });
     }
   };
 
@@ -69,6 +68,41 @@ class ExampleForm extends Component {
 
     return true;
   };
+
+  onAnswerSelect = (answer) => {
+    const currentAnswers = this.state.answers;
+    let isPresent = false;
+    currentAnswers.forEach((ans, index) => {
+      if (answer.id === ans.id) {
+        isPresent = true;
+        return this.updateAnswer(answer, index);
+      }
+    });
+    if (!isPresent) {
+      this.addAnswer(answer);
+    }
+  }
+
+  addAnswer = (answer) => {
+    this.setState({
+      answers: [
+        ...this.state.answers,
+        answer
+      ]
+    });
+  }
+
+  updateAnswer = (answer, updateIndex) => {
+    this.setState({
+      answers: this.state.answers.map((ans, index) => {
+        if (index === updateIndex) {
+          return answer;
+        }
+
+        return ans;
+      })
+    });
+  }
 
   render() {
     const name = this.state.name;
@@ -197,7 +231,7 @@ class ExampleForm extends Component {
                         value={how} />
                     </div>
                   </div>
-                  <QuestionList />
+                  <QuestionList selectAnswer={this.onAnswerSelect} />
                   <button
                     className="btn btn-primary"
                     type="submit">

@@ -32,6 +32,7 @@ class QuestionList extends React.Component {
           question={question.question}
           options={question.options}
           key={index}
+          onAnswerSelect={this.props.selectAnswer}
         />
       );
     });
