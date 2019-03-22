@@ -19,5 +19,8 @@ export default {
   },
   getQuestions: function() {
     return axios.get("/api/questions");
+  },
+  createQuestion: function(questionData) {
+    return axios.post('/api/newquestion', questionData);
   }
 };

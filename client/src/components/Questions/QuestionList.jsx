@@ -44,10 +44,6 @@ class QuestionList extends React.Component {
     return (
       <div>
         {questionCards}
-        {questionCards}
-        {questionCards}
-        {questionCards}
-        {questionCards}
       </div>
     );
   }

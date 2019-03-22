@@ -6,8 +6,7 @@ import Example from "./pages/Example";
 import ExampleForm from "./pages/basicInfo";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import QuestionForm from './components/Questions/QuestionCard';
-
+import QuestionsForm from "./pages/QuestionsForm";
 
 function App() {
   return (
@@ -18,8 +17,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/example/:id" component={Example} />
           <Route exact path="/newexample" component={ExampleForm} />
+          <Route exact path="/newquestion" component={QuestionsForm} />
           <Route component={NoMatch} />
-          <Route component={QuestionForm} />
         </Switch>
       </>
     </Router>
