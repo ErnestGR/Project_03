@@ -9,7 +9,8 @@ const exampleSchema = new Schema({
   position: { type: String },
   phone: { type: String },
   email: { type: String },
-  how: { type: String }
+  how: { type: String },
+  answers: { type: Array, default: [] }
 });
 
 const Example = mongoose.model("Example", exampleSchema);

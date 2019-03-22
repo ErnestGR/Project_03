@@ -24,10 +24,10 @@ class QuestionCard extends React.Component {
   }
 
   render() {
-    const {id, question, category, options} = this.props;
+    const { id, question, category, options } = this.props;
 
     return (
-      
+
       <div>
         <div className="col-sm-4">
           <div className="card text-white bg-info mb-3">
@@ -38,7 +38,17 @@ class QuestionCard extends React.Component {
                 options.map((option, index) => {
                   return (
                     <div className="custom-control custom-radio" key={index}>
-                      <input type="radio" id={`${id}-${index}`} name={`radio-${id}`} className="custom-control-input" value={option.value} />
+                      <input
+                        type="radio"
+                        id={`${id}-${index}`}
+                        name={`radio-${id}`}
+                        className="custom-control-input"
+                        value={option.value}
+                        onChange={() => {
+                          const value = option.value;
+                          this.props.onAnswerSelect({ id, value });
+                        }
+                        } />
                       <label className="custom-control-label" htmlFor={`${id}-${index}`}>{option.text}</label>
                     </div>
                   )
