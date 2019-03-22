@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import PropTypes from 'prop-types';
-import QuestionList from "../components/Questions/QuestionList";
+import QuestionList from '../components/Questions/QuestionList';
 
 class ExampleForm extends Component {
   constructor(props) {
@@ -198,7 +197,7 @@ class ExampleForm extends Component {
                         value={how} />
                     </div>
                   </div>
-
+                  <QuestionList />
                   <button
                     className="btn btn-primary"
                     type="submit">
