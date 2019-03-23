@@ -24,13 +24,25 @@ class QuestionCard extends React.Component {
   }
 
   render() {
+    const categoryClass = {
+      "Authority": "bg-info",
+      "Budget": "bg-success",
+      "Need": "bg-warning",
+      "Timing": "bg-danger"
+    }
+
     const { id, question, category, options } = this.props;
-
+    let bg = "bg-success";
+    Object.keys(categoryClass).forEach(function (key) {
+      if (category === key) {
+        bg = categoryClass[key];
+      }
+    });
+    const classes = `card text-white ${bg} mb-3`;
     return (
-
-      <div>
+      <>
         <div className="col-sm-4">
-          <div className="card text-white bg-info mb-3">
+          <div className={classes} >
             <div className="card-header">{category}</div>
             <div className="card-body">
               <h5 className="card-title">{question}</h5>
@@ -57,7 +69,7 @@ class QuestionCard extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

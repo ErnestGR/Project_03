@@ -43,7 +43,7 @@ class QuestionList extends React.Component {
   render() {
     const questionCards = this.getQuestionsAsCards();
     return (
-      <div>
+      <div className="row">
         {questionCards}
         {questionCards}
         {questionCards}

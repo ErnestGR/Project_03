@@ -16,13 +16,16 @@ function Nav() {
       <div class="col-4 d-flex justify-content-end align-items-center">
 
         <Link class="btn btn-sm btn-outline-secondary" to="/">
-          Database
+          Home
           </Link>
 
         <Link class="btn btn-sm btn-outline-secondary" to="/newexample">
-          Lead Scoring
+          Database
           </Link>
 
+        <Link class="btn btn-sm btn-outline-secondary" to="/newquestion">
+          Create Question
+          </Link>
       </div>
 
     </nav>
