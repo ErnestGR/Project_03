@@ -23,12 +23,20 @@ class QuestionCard extends React.Component {
     options: []
   }
 
+  setCategoryColor = () => {
+    const questions = this.state.questions;
+
+    if(questions.category == 'Authority') {
+      this.setState({ categoryColor = 'card text-white bg-info mb-3'})
+    }
+  }
+
   render() {
     const {id, question, category, options} = this.props;
 
     return (
       
-      <div>
+      <>
         <div className="col-sm-4">
           <div className="card text-white bg-info mb-3">
             <div className="card-header">{category}</div>
@@ -47,7 +55,7 @@ class QuestionCard extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
