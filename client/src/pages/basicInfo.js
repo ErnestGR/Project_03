@@ -114,137 +114,142 @@ class ExampleForm extends Component {
     const how = this.state.how;
 
     return (
+      <>
+        <div class="container-fluid">
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="card text-white bg-secondary mb-3">
+                <div className="card-header">Basic Info</div>
+                <div className="card-body">
+                  <form className="" onSubmit={this.submitExample}>
 
-      <div class="container-fluid">
-        <div className="row">
-          <div className="col-sm-12">
-            <div className="card text-white bg-secondary mb-3">
-              <div className="card-header">Basic Info</div>
-              <div className="card-body">
-                <form className="" onSubmit={this.submitExample}>
+                    <div className="form-group row">
+                      <label
+                        htmlFor="name"
+                        class="col-sm-2 col-form-label">
+                        Name:
+          </label>
+                      <div class="col-sm-10">
+                        <input
+                          className="form-control"
+                          name="name"
+                          type="text"
+                          placeholder="name"
+                          onChange={this.handleInputChange}
+                          value={name} />
+                      </div>
+                    </div>
 
-                  <div className="form-group row">
-                    <label
-                      htmlFor="name"
-                      class="col-sm-2 col-form-label">
-                      Name:
+                    <div className="form-group row">
+                      <label
+                        htmlFor="company"
+                        class="col-sm-2 col-form-label">
+                        Company:
           </label>
-                    <div class="col-sm-10">
-                      <input
-                        className="form-control"
-                        name="name"
-                        type="text"
-                        placeholder="name"
-                        onChange={this.handleInputChange}
-                        value={name} />
+                      <div class="col-sm-10">
+                        <input
+                          className="form-control"
+                          name="company"
+                          type="text"
+                          placeholder="company"
+                          onChange={this.handleInputChange}
+                          value={company} />
+                      </div>
                     </div>
-                  </div>
+                    <div className="form-group row">
+                      <label
+                        htmlFor="city"
+                        class="col-sm-2 col-form-label">
+                        City:
+          </label>
+                      <div class="col-sm-10">
+                        <input
+                          className="form-control"
+                          name="city"
+                          placeholder="city"
+                          onChange={this.handleInputChange}
+                          value={city} />
+                      </div>
+                    </div>
+                    <div className="form-group row">
+                      <label
+                        htmlFor="position"
+                        class="col-sm-2 col-form-label">
+                        Position:
+          </label>
+                      <div class="col-sm-10">
+                        <input
+                          className="form-control"
+                          name="position"
+                          placeholder="position"
+                          onChange={this.handleInputChange}
+                          value={position} />
+                      </div>
+                    </div>
+                    <div className="form-group row">
+                      <label
+                        htmlFor="phone"
+                        class="col-sm-2 col-form-label">
+                        Phone:
+          </label>
+                      <div class="col-sm-10">
+                        <input
+                          className="form-control"
+                          name="phone"
+                          placeholder="phone"
+                          onChange={this.handleInputChange}
+                          value={phone} />
+                      </div>
+                    </div>
+                    <div className="form-group row">
+                      <label
+                        htmlFor="email"
+                        class="col-sm-2 col-form-label">
+                        Email:
+          </label>
+                      <div class="col-sm-10">
+                        <input
+                          className="form-control"
+                          name="email"
+                          placeholder="email"
+                          onChange={this.handleInputChange}
+                          value={email} />
+                      </div>
+                    </div>
+                    <div className="form-group row">
+                      <label
+                        htmlFor="how"
+                        class="col-sm-2 col-form-label">
+                        How did they hear about us:
+          </label>
+                      <div class="col-sm-10">
+                        <input
+                          className="form-control"
+                          name="how"
+                          placeholder="Facebook, phone, email, friend"
+                          onChange={this.handleInputChange}
+                          value={how} />
+                      </div>
+                    </div>
 
-                  <div className="form-group row">
-                    <label
-                      htmlFor="company"
-                      class="col-sm-2 col-form-label">
-                      Company:
-          </label>
-                    <div class="col-sm-10">
-                      <input
-                        className="form-control"
-                        name="company"
-                        type="text"
-                        placeholder="company"
-                        onChange={this.handleInputChange}
-                        value={company} />
-                    </div>
-                  </div>
-                  <div className="form-group row">
-                    <label
-                      htmlFor="city"
-                      class="col-sm-2 col-form-label">
-                      City:
-          </label>
-                    <div class="col-sm-10">
-                      <input
-                        className="form-control"
-                        name="city"
-                        placeholder="city"
-                        onChange={this.handleInputChange}
-                        value={city} />
-                    </div>
-                  </div>
-                  <div className="form-group row">
-                    <label
-                      htmlFor="position"
-                      class="col-sm-2 col-form-label">
-                      Position:
-          </label>
-                    <div class="col-sm-10">
-                      <input
-                        className="form-control"
-                        name="position"
-                        placeholder="position"
-                        onChange={this.handleInputChange}
-                        value={position} />
-                    </div>
-                  </div>
-                  <div className="form-group row">
-                    <label
-                      htmlFor="phone"
-                      class="col-sm-2 col-form-label">
-                      Phone:
-          </label>
-                    <div class="col-sm-10">
-                      <input
-                        className="form-control"
-                        name="phone"
-                        placeholder="phone"
-                        onChange={this.handleInputChange}
-                        value={phone} />
-                    </div>
-                  </div>
-                  <div className="form-group row">
-                    <label
-                      htmlFor="email"
-                      class="col-sm-2 col-form-label">
-                      Email:
-          </label>
-                    <div class="col-sm-10">
-                      <input
-                        className="form-control"
-                        name="email"
-                        placeholder="email"
-                        onChange={this.handleInputChange}
-                        value={email} />
-                    </div>
-                  </div>
-                  <div className="form-group row">
-                    <label
-                      htmlFor="how"
-                      class="col-sm-2 col-form-label">
-                      How did they hear about us:
-          </label>
-                    <div class="col-sm-10">
-                      <input
-                        className="form-control"
-                        name="how"
-                        placeholder="Facebook, phone, email, friend"
-                        onChange={this.handleInputChange}
-                        value={how} />
-                    </div>
-                  </div>
-                  <QuestionList selectAnswer={this.onAnswerSelect} />
-                  <button
-                    className="btn btn-primary"
-                    type="submit">
-                    Submit
-        </button>
+                  </form>
 
-                </form>
+                </div>
+
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
-      </div>
+        <div className="container-fluid">
+          <QuestionList selectAnswer={this.onAnswerSelect} />
+          <button
+            className="btn btn-primary"
+            type="submit">
+            Submit
+   </button>
+        </div>
+      </>
     );
   }
 }
