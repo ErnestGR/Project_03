@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
 import PropTypes from 'prop-types';
+import QuestionList from '../components/Questions/QuestionList';
 
 class ExampleForm extends Component {
   constructor(props) {
@@ -172,6 +173,7 @@ class ExampleForm extends Component {
             onChange={this.handleInputChange}
             value={how} />
         </div>
+        <QuestionList/>
 
         <button
           className="btn btn-primary"

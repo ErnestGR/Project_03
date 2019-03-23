@@ -6,6 +6,7 @@ class QuestionCard extends React.Component {
     super(props);
 
     this.state = {
+      checked: true
     };
   }
 
@@ -23,13 +24,9 @@ class QuestionCard extends React.Component {
     options: []
   }
 
-  setCategoryColor = () => {
-    const questions = this.state.questions;
-
-    if(questions.category == 'Authority') {
-      this.setState({ categoryColor = 'card text-white bg-info mb-3'})
-    }
-  }
+  /* handleRadioChange = (e) => {
+    this.setState({ checked: false})
+  } */
 
   render() {
     const {id, question, category, options} = this.props;
@@ -46,7 +43,7 @@ class QuestionCard extends React.Component {
                 options.map((option, index) => {
                   return (
                     <div className="custom-control custom-radio" key={index}>
-                      <input type="radio" id={`${id}-${index}`} name={`radio-${id}`} className="custom-control-input" value={option.value} />
+                      <input type="radio" id={`${id}-${index}`} name={`radio-${id}`} className="custom-control-input" value={option.value}/>
                       <label className="custom-control-label" htmlFor={`${id}-${index}`}>{option.text}</label>
                     </div>
                   )
