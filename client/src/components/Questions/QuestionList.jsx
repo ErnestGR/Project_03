@@ -1,6 +1,5 @@
 import React from 'react';
 import API from "../../utils/API";
-
 import QuestionCard from "./QuestionCard";
 
 class QuestionList extends React.Component {
@@ -44,10 +43,6 @@ class QuestionList extends React.Component {
     const questionCards = this.getQuestionsAsCards();
     return (
       <div className="row">
-        {questionCards}
-        {questionCards}
-        {questionCards}
-        {questionCards}
         {questionCards}
       </div>
     );

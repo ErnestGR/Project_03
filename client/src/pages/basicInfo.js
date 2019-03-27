@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Store from "../utils/Store";
+import { withRouter } from 'react-router-dom';
 import QuestionList from '../components/Questions/QuestionList';
 
 class ExampleForm extends Component {
@@ -57,9 +58,9 @@ class ExampleForm extends Component {
         phone,
         email,
         how,
-        answers 
+        answers
       }).then(() => {
-        this.props.history.push('/');
+        window.location.reload();
       });
     }
   };
@@ -265,4 +266,4 @@ class ExampleForm extends Component {
 }
 
 
-export default ExampleForm;
+export default withRouter(ExampleForm);

@@ -6,8 +6,6 @@ import Example from "./pages/Example";
 import ExampleForm from "./pages/basicInfo";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import QuestionForm from './components/Questions/QuestionCard';
-import QuestionList from "./components/Questions/QuestionList";
 import QuestionsForm from "./pages/QuestionsForm";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
