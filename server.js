@@ -17,8 +17,11 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
+
 //var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/finalclassproject";
 mongoose.connect(process.env.MONGODB_URI);
+
+require("./config/passport");
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

@@ -53,7 +53,7 @@ class Home extends Component {
     const examplesList = this.getExamplesAsList();
     return (
       <div className="container">
-        <h1>Examples</h1>
+        <h1>Clients</h1>
         {examplesList}
       </div>
     );

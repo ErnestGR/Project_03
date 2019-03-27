@@ -1,6 +1,5 @@
 import React from 'react';
 import API from "../../utils/API";
-
 import QuestionCard from "./QuestionCard";
 
 class QuestionList extends React.Component {
@@ -14,11 +13,11 @@ class QuestionList extends React.Component {
 
   componentDidMount() {
     API.getQuestions()
-    .then((response) => {
-      this.setState({
-        questions: response.data
+      .then((response) => {
+        this.setState({
+          questions: response.data
+        });
       });
-    });
   }
 
   getQuestionsAsCards = () => {
@@ -26,13 +25,14 @@ class QuestionList extends React.Component {
 
     const questionCards = questions.map((question, index) => {
       return (
-        <QuestionCard 
+        <QuestionCard
           id={question._id}
           category={question.category}
           question={question.question}
           options={question.options}
           key={index}
-          />
+          onAnswerSelect={this.props.selectAnswer}
+        />
       );
     });
 
@@ -42,11 +42,11 @@ class QuestionList extends React.Component {
   render() {
     const questionCards = this.getQuestionsAsCards();
     return (
-      <div>
+      <div className="row">
         {questionCards}
       </div>
     );
   }
-} 
+}
 
 export default QuestionList;

@@ -16,7 +16,7 @@ const exampleSchema = new Schema({
   answers: { type: Array, default: [] }
 });
 
-exampleSchema.post("save", function(lead, next) {
+exampleSchema.post("save", function (lead, next) {
   const totalScore = lead.answers.reduce((score, answer) => {
     return score + answer;
   }, 0);
