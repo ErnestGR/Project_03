@@ -57,7 +57,7 @@ class ExampleForm extends Component {
         phone,
         email,
         how,
-        answers
+        answers 
       }).then(() => {
         this.props.history.push('/');
       });

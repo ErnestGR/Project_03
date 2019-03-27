@@ -24,7 +24,7 @@ class Example extends Component {
     const id = this.state.example._id;
     API.deleteExample(id)
       .then(() => {
-        this.props.history.push('/');
+        this.props.history.push('/newexample');
       })
       .catch((error) => {
         console.error(error);

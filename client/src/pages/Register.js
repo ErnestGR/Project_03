@@ -57,6 +57,9 @@ class Register extends React.Component {
     const { email, password } = this.state;
     return (
       <form className="container" onSubmit={this.handleSubmit}>
+        <div class="text-center mb-4">
+          <img class="mb-4" src="img/logo_abinco.png" alt="" width="72" height="72" />
+        </div>
         <h1>Register</h1>
         <div className="form-group">
           <input
@@ -65,7 +68,7 @@ class Register extends React.Component {
             type="email"
             value={email}
             onChange={this.handleInputChange}
-            placeholder="email"
+            placeholder="Email"
           />
         </div>
         <div className="form-group">
@@ -75,14 +78,18 @@ class Register extends React.Component {
             type="password"
             value={password}
             onChange={this.handleInputChange}
-            placeholder="password"
+            placeholder="Password"
           />
         </div>
         <button
-          className="btn btn-primary"
+          className="btn btn-lg btn-outline-secondary btn-block"
           type="submit">
-          Register!
+          Register
         </button>
+        <div class="dropdown-divider"></div>
+        <a href="/login">Already have an account? Sign up!</a>
+
+        <p class="mt-5 mb-3 text-muted text-center">© 2019</p>
       </form>
     );
   }

@@ -26,6 +26,10 @@ function Nav() {
         <Link class="btn btn-sm btn-outline-secondary" to="/newquestion">
           Create Question
           </Link>
+
+        <Link class="btn btn-sm btn-outline-secondary" to="/newquestion">
+          Log out
+          </Link>
       </div>
 
     </nav>

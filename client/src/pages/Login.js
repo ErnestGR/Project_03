@@ -56,33 +56,44 @@ class Login extends React.Component {
   render() {
     const { email, password } = this.state;
     return (
+
       <form className="container" onSubmit={this.handleSubmit}>
+
+        <div class="text-center mb-4">
+          <img class="mb-4" src="img/logo_abinco.png" alt="" width="72" height="72" />
+        </div>
         <h1>Login</h1>
-        <div className="form-group">
+        <div className="form-group form-label-group">
           <input
             className="form-control"
             name="email"
             type="email"
             value={email}
             onChange={this.handleInputChange}
-            placeholder="email"
+            placeholder="Email"
           />
         </div>
-        <div className="form-group">
+
+        <div className="form-group form-label-group">
           <input
             className="form-control"
             name="password"
             type="password"
             value={password}
             onChange={this.handleInputChange}
-            placeholder="password"
+            placeholder="Password"
           />
         </div>
+
         <button
-          className="btn btn-primary"
+          className="btn btn-lg btn-outline-secondary btn-block"
           type="submit">
-          Login!
+          Login
         </button>
+        <div class="dropdown-divider"></div>
+        <a href="/register">Don't have an account? Register!</a>
+
+        <p class="mt-5 mb-3 text-muted text-center">© 2019</p>
       </form>
     );
   }
