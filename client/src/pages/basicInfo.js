@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import Store from "../utils/Store";
 import QuestionList from '../components/Questions/QuestionList';
 
 class ExampleForm extends Component {
@@ -18,7 +19,14 @@ class ExampleForm extends Component {
     };
   }
 
-  handleInputChange = event => {
+  componentDidMount() {
+    const { token } = Store.get("userData");
+    if (!token) {
+      this.props.history.push("/login");
+    }
+  }
+
+  handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
