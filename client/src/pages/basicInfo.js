@@ -30,6 +30,7 @@ class ExampleForm extends Component {
   submitExample = event => {
     event.preventDefault();
 
+
     const name = this.state.name.trim();
     const city = this.state.city.trim();
     const company = this.state.company.trim();
@@ -121,7 +122,7 @@ class ExampleForm extends Component {
               <div className="card text-white bg-secondary mb-3">
                 <div className="card-header">Basic Info</div>
                 <div className="card-body">
-                  <form className="" onSubmit={this.submitExample}>
+                  <form className="">
 
                     <div className="form-group row">
                       <label
@@ -244,10 +245,11 @@ class ExampleForm extends Component {
         <div className="container-fluid">
           <QuestionList selectAnswer={this.onAnswerSelect} />
           <button
+            onClick={this.submitExample}
             className="btn btn-primary"
             type="submit">
             Submit
-   </button>
+          </button>
         </div>
       </>
     );
