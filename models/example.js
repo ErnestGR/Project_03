@@ -18,7 +18,7 @@ const exampleSchema = new Schema({
 
 exampleSchema.post("save", function (lead, next) {
   const totalScore = lead.answers.reduce((score, answer) => {
-    return score + answer;
+    return score + answer.value;
   }, 0);
 
   const type = ScoreManager.GetTypeByScore(totalScore);
