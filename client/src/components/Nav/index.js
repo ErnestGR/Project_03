@@ -15,7 +15,7 @@ function authenticatedNavBar() {
         <img class="mb-4" src="img/logo_abinco.png" alt="Abinco" width="40" height="40" />
       </div>
 
-      <div class="col-4 text-center">
+      <div class="col-4 text-center d-none d-sm-block">
         <h2>LEAD SCORING</h2>
       </div>
 
@@ -50,7 +50,7 @@ function unauthenticatedNavBar() {
         <img class="mb-4" src="img/logo_abinco.png" alt="Abinco" width="40" height="40" />
       </div>
 
-      <div class="col-4 text-center">
+      <div class="col-4 text-center d-none d-sm-block">
         <h2>LEAD SCORING</h2>
       </div>
 
